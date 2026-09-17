@@ -1,0 +1,34 @@
+version: '3.8'
+
+services:
+  app_server:
+    user: root
+    build:
+      context: ../
+      dockerfile: ./server/.devcontainer/Dockerfile
+    # ports:
+    #   - "8080:8080"
+    volumes:
+      # - ./server:/app
+      - ../:/workspace:cached
+    command: sleep infinity
+    environment:
+      - PYTHONPATH=/workspace/server/src
+
+  app_client:
+    user: root
+    build:
+      context: ../
+      dockerfile: ./client/.devcontainer/Dockerfile
+    # ports:
+    #   - "8001:8001"
+    volumes:
+      # - ./client:/app
+      - ../:/workspace:cached
+    # depends_on:
+    #   - server
+    command: sleep infinity
+    environment:
+      - PYTHONPATH=/workspace/client/src
+
+
