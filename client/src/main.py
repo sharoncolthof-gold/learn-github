@@ -8,7 +8,8 @@ import requests
 
 def get_base_url() -> str:
     """Resolve base URL from environment or fallback to localhost."""
-    return os.environ.get("SERVER_URL", "http://app_server:8080").rstrip("/")
+    server_url = os.environ.get("SERVER_URL", "http://app_server:8080")
+    return f"http://{server_url}:8080"
 
 
 def check_health(base_url: str, timeout: float = 3.0) -> dict:
