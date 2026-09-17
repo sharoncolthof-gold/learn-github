@@ -8,7 +8,8 @@ import requests
 
 def get_base_url() -> str:
     """Resolve base URL from environment or fallback to localhost."""
-    server_url = os.environ.get("SERVER_URL", "app_server")
+    is_git_space = os.environ.get("CODESPACES", "")
+    server_url = "localhost" if is_git_space else "app_server"
     return f"http://{server_url}:8080"
 
 

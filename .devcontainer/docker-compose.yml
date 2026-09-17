@@ -30,6 +30,5 @@ services:
     command: sleep infinity
     environment:
       - PYTHONPATH=/workspace/client/src
-      - SERVER_URL=${CODESPACES:+localhost}
 
 
