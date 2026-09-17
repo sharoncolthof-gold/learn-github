@@ -31,6 +31,5 @@ services:
     environment:
       - PYTHONPATH=/workspace/client/src
       - SERVER_URL=${CODESPACES:+localhost}
-      - SERVER_URL=${SERVER_URL:-app_server}
 
 
