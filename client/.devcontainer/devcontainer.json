@@ -1,0 +1,50 @@
+{
+	"name": "App Client",
+	"dockerComposeFile": ["../../.devcontainer/docker-compose.yml"],
+	"service": "app_client",
+	"workspaceFolder": "/workspace/client",
+	"shutdownAction": "none",
+
+	"customizations": {
+		"vscode": {
+			"settings": {
+				// python settings
+				"[python]": {
+					"diffEditor.ignoreTrimWhitespace": false,
+					"editor.formatOnType": true,
+					"editor.wordBasedSuggestions": "off",
+					"editor.defaultFormatter": "ms-python.autopep8"
+				},
+				"python.defaultInterpreterPath": "/opt/conda/bin/python",
+				"python.condaPath": "/opt/conda",
+				"python.analysis.autoFormatStrings": true,
+				"python.analysis.importFormat": "absolute",
+				"python.terminal.activateEnvironment": false,
+				
+				// pytest settings
+				"python.testing.cwd": "${workspaceFolder}",
+				"python.testing.pytestArgs": ["tests", "-s"],
+				"python.testing.pytestEnabled": true,
+				"python.testing.pytestArgs": [
+					"--cache-clear"
+				],
+
+				// terminal settings
+				"terminal.integrated.profiles.linux": {
+					"bash": {
+						"path": "bash",
+						"icon": "terminal-bash",
+						"args": ["--init-file", "${workspaceFolder}/.devcontainer/terminal.sh"]
+					},
+				},
+				"terminal.integrated.defaultProfile.linux": "bash",
+				},
+			"extensions": [
+				"ms-python.python",
+				"ms-python.vscode-pylance"
+			]
+	  	}
+	}
+}
+  
+
